@@ -2,17 +2,41 @@
 #include <string>
 #include "rundom_value.h"
 #include "high_scores.h"
+#include "argument.h"
 
-int main() {
+int main(int argc, char** argv) {
 
-	const int target_value = guess_the_number();
+	bool is_table = false;
+	bool is_max = false;
+	int max = 0;
+	int res;
+	int default_max = 100;
+
+	res = get_arg(argc, argv, is_table, is_max, max);
+	if (res == -1) {
+		std::cout << "Parameter sequence is not correct" << std::end;
+		return -1;
+	}
 	
-	std::cout << "target value is " << target_value << std::endl;
-
+	if (is_table) {
+		res = init_high_scores();
+		return res;
+	}
+	
+	if(is_max) {
+		if(max == 0){
+			max = default_max;
+		}
+	}
+	
+	const int target_value = guess_the_number(max);
+	
 	int current_value = 0;
 	bool not_win = true;
 	int attempt_value = 0;
-	std::cout << "Guess the number from 0 to 100." << std::endl;
+	std::cout << "Guess the number from 0 to "; 
+	std::cout << max;
+	std::cout << std::endl;
 	std::cout << "Enter your guess:" << std::endl;
 	
 	do {
@@ -35,7 +59,7 @@ int main() {
 
 	} while(true);
 
-	int res = init_high_scores();
+	res = init_high_scores();
 
 	return 0;
 }

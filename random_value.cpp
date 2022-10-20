@@ -4,9 +4,9 @@
 
 #include "rundom_value.h"
 
-int guess_the_number() {
+int guess_the_number(int max) {
 
 	std::srand(std::time(nullptr)); // use current time as seed for random generator
-	return std::rand() % 100;
+	return std::rand() % max;
 
 }

@@ -10,12 +10,7 @@ int get_arg(int argc, char** argv, bool& is_table, bool& is_max, int& max) {
 
 	is_max = false;
 	is_table = false;
-	// Let's print this argument
-	if (argc > 0) {
-		std::cout << "We have at least one argument!" << std::endl;
-		std::cout << "argv[0] = " << argv[0] << std::endl;
-	}
-
+	
 	// To check - does use print some other argument we should check if the argc >= 2
 	if (argc >= 2) {
 		// std::cout << "We have one more argument!" << std::endl;

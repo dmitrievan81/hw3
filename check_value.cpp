@@ -13,8 +13,12 @@ int main(int argc, char** argv) {
 	int default_max = 100;
 
 	res = get_arg(argc, argv, is_table, is_max, max);
+	std::cout << "is_table=" << is_table << std::endl;
+	std::cout << "is_max="<<is_max<<std::endl;
+	std::cout << "max="<<max<<std::endl;
+
 	if (res == -1) {
-		std::cout << "Parameter sequence is not correct" << std::end;
+		std::cout << "Parameter sequence is not correct" << std::endl;
 		return -1;
 	}
 	

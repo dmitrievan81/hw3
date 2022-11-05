@@ -13,10 +13,7 @@ int main(int argc, char** argv) {
 	int default_max = 100;
 
 	res = get_arg(argc, argv, is_table, is_max, max);
-	std::cout << "is_table=" << is_table << std::endl;
-	std::cout << "is_max="<<is_max<<std::endl;
-	std::cout << "max="<<max<<std::endl;
-
+	
 	if (res == -1) {
 		std::cout << "Parameter sequence is not correct" << std::endl;
 		return -1;
@@ -31,6 +28,10 @@ int main(int argc, char** argv) {
 		if(max == 0){
 			max = default_max;
 		}
+	}
+
+	if(max == 0) {
+		max = default_max;
 	}
 	
 	const int target_value = guess_the_number(max);
@@ -48,11 +49,11 @@ int main(int argc, char** argv) {
 		std::cin >> current_value;
 		
 		if (current_value < target_value) {
-			std::cout << "less than " << current_value << std::endl;
+			std::cout << "greater than " << current_value << std::endl;
 			attempt_value++;
 		}
 		else if (current_value > target_value) {
-			std::cout << "greater than " << current_value << std::endl;
+			std::cout << "less than " << current_value << std::endl;
 			attempt_value++;
 		}
 		else {

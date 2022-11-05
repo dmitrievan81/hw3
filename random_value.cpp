@@ -6,7 +6,7 @@
 
 int guess_the_number(int max) {
 
-	std::srand(std::time(nullptr)); // use current time as seed for random generator
+	std::srand(static_cast<int>(std::time(nullptr))); // use current time as seed for random generator
 	return std::rand() % max;
 
 }

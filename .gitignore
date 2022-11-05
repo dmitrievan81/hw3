@@ -1,3 +1,10 @@
+build/
+
+.vscode/
+
+high_scores.txt
+
+
 ##### Windows
 # Windows thumbnail cache files
 Thumbs.db
